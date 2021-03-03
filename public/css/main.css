@@ -1,0 +1,40 @@
+h1{
+    text-align: center;
+    color:darkmagenta;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 50px;
+}
+img{
+    position: absolute;
+    left: 400px;
+    width: 5%;
+    top: 25px;
+}
+body{
+    background-image: url('../img/background.jpg');
+    margin: 0;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+    width: 15%;
+    background-color:snow;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  li a {
+    display: block;
+    color: darkmagenta;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+  
+  li a.active {
+    background-color: darkmagenta;
+    color: snow;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: violet;
+    color: snow;
+  }
