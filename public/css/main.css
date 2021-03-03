@@ -2,13 +2,12 @@ h1{
     text-align: center;
     color:darkmagenta;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 50px;
 }
 img{
     position: absolute;
-    left: 400px;
-    width: 5%;
-    top: 25px;
+    left: 520px;
+    width: 4%;
+    top: 15px;
 }
 body{
     background-image: url('../img/background.jpg');
@@ -25,7 +24,7 @@ ul {
   li a {
     display: block;
     color: darkmagenta;
-    padding: 8px 16px;
+    padding: 15px 16px;
     text-decoration: none;
   }
   
@@ -37,4 +36,9 @@ ul {
   li a:hover:not(.active) {
     background-color: violet;
     color: snow;
+  }
+  h2{
+      color:purple;
+      text-align: center;
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
   }
