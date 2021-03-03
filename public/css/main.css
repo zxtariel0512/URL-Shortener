@@ -42,3 +42,25 @@ ul {
       text-align: center;
       font-family:Verdana, Geneva, Tahoma, sans-serif;
   }
+form{
+  text-align:center;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  color:purple;
+  font-weight: bold;
+}
+input[type='submit']{
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  color:snow;
+  background-color:darkmagenta;
+  font-weight: bold;
+}
+input[type='text']{
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  color:darkmagenta;
+  background-color:snow
+}
+p{
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  color:darkmagenta;
+  text-align: center;
+}

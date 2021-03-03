@@ -1,0 +1,13 @@
+<h2>Shorten URL</h2>
+<form method="POST" action="/shorten">
+Enter a long URL: <input type="text" name="originalURL">
+<input type="submit">
+</form>
+
+<script> 
+    {{#if valid}} 
+    let elem = document.createElement('p'); 
+    elem.innerHTML = "The short URL is: {{shortenURL}}"; 
+    document.body.append(elem); 
+    {{/if}} 
+ </script>
