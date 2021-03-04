@@ -1,1 +1,8 @@
 <h2>Trending URLs</h2>
+
+
+<ol class='trending'>
+    {{#each trendings}}
+        <li><a href={{this.originalURL}}>{{this.shortURL}}</a></li>
+    {{/each}}
+</ol>

@@ -50,7 +50,10 @@ Query: ${JSON.stringify(req.query)}`);
 });
 
 app.get('/', function(req, res){
-    res.render('home');
+    let urlDataDum = [...urlData];
+    urlDataDum.sort((a, b) => (b.clickCount - a.clickCount));
+    const trendings = urlDataDum.slice(0, 5);
+    res.render('home', {trendings: trendings});
 })
 app.get('/shorten', function(req, res){
     res.render('shorten', {valid: displayMessage, shortenURL: urlData[urlData.length - 1].shortURL});
