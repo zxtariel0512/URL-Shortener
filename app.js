@@ -2,15 +2,15 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const URLShortener = require('./urlShortener.js');
-const util = require('util');
-const { RuleTester } = require('eslint');
+
+
 
 const dataPath = path.join(__dirname, 'data', 'urldata.json');
 const urls = JSON.parse(fs.readFileSync(dataPath));
 const urlData = [];
 urls.forEach((url) => {
     urlData.push(new URLShortener.URLShortener(url.originalURL, url.shortURL, url.clickCount));
-})
+});
 let displayMessage = false;
 // // const readFile = util.promisify(fs.readFile);
 // // async function callReadFile(path){
@@ -50,14 +50,14 @@ Query: ${JSON.stringify(req.query)}`);
 });
 
 app.get('/', function(req, res){
-    let urlDataDum = [...urlData];
+    const urlDataDum = [...urlData];
     urlDataDum.sort((a, b) => (b.clickCount - a.clickCount));
     const trendings = urlDataDum.slice(0, 5);
     res.render('home', {trendings: trendings});
-})
+});
 app.get('/shorten', function(req, res){
     res.render('shorten', {valid: displayMessage, shortenURL: urlData[urlData.length - 1].shortURL});
-})
+});
 app.get('/expand', function(req, res){
     displayMessage = false;
     const inputURL = req.query.shortURL;
@@ -72,22 +72,22 @@ app.get('/expand', function(req, res){
     const writeData = JSON.stringify(urlData, null, 2);
     fs.writeFileSync(dataPath, writeData, (err) =>{
         if(err){throw err;}
-    })
-})
+    });
+});
 
 app.post('/shorten', function(req, res){
     console.log(req.body);
-    let newURL = new URLShortener.URLShortener(req.body.originalURL);
+    const newURL = new URLShortener.URLShortener(req.body.originalURL);
     newURL.shorten(urlData);
     displayMessage = true;
     urlData.push(newURL);
     const writeData = JSON.stringify(urlData, null, 2);
     fs.writeFileSync(dataPath, writeData, (err) =>{
         if(err){throw err;}
-    })
+    });
     console.log('JSON file updated');
     res.redirect('/shorten');
-})
+});
 
 
 

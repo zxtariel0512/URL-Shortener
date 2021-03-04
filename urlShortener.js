@@ -17,7 +17,7 @@ class URLShortener{
                 if(url.shortURL === shorts){
                     flag = false;
                 }
-            })
+            });
         }
         this.shortURL = shorts;
         return shorts;
