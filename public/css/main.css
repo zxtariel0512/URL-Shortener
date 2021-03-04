@@ -6,14 +6,14 @@ h1{
 img{
     position: absolute;
     left: 520px;
-    width: 4%;
-    top: 15px;
+    width: 3%;
+    top: 65px;
 }
 body{
     background-image: url('../img/background.jpg');
     margin: 0;
 }
-ul {
+/* ul {
     list-style-type: none;
     padding: 0;
     width: 15%;
@@ -36,7 +36,35 @@ ul {
   li a:hover:not(.active) {
     background-color: violet;
     color: snow;
+  } */
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: darkmagenta;
   }
+  
+  li {
+    float: left;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  li a {
+    display: block;
+    color: snow;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: violet;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+  }
+
   h2{
       color:purple;
       text-align: center;

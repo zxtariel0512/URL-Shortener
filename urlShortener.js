@@ -23,10 +23,22 @@ class URLShortener{
         return shorts;
     }
 	// Returns Expanded URL
-    expand() {
+    expand(urlData) {
+        // const url = urlData.find((url) => {
+        //     return url.shortURL === this.shortURL;
+        // })
+        // return url.originalURL;
+        for(let i = 0; i < urlData.length; i++){
+            if(urlData[i].shortURL === this.shortURL){
+                urlData[i].updateClickCount();
+                return urlData[i].originalURL;
+            }
+        }
     }
 	// Updates Click count
     updateClickCount() {
+        this.clickCount++;
+        this.clickCount += '';
     }
 }
 

@@ -1,0 +1,9 @@
+<h2>Expand URL</h2>
+<form method="GET" action="/expand">
+Enter a short URL: <input type="text" name="shortURL">
+<input type="submit" value='Expand URL'>
+</form>
+
+{{#if valid}}
+    <p>The expand URL is: {{expandURL}}</p>
+{{/if}}

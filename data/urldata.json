@@ -23,5 +23,10 @@
     "originalURL": "https://news.google.com/articles/CAIiEEl7nMGFq2BiqTdoRx2ZZggqGAgEKg8IACoHCAowhK-LAjD4ySwwrNS0BQ?hl=en-US&gl=US&ceid=US%3Aen",
     "shortURL": "http://localhost:3000/7nc652",
     "clickCount": "7"
+  },
+  {
+    "originalURL": "http://hw4.text/test1",
+    "shortURL": "http://localhost:3000/ioKjhX",
+    "clickCount": "0"
   }
 ]

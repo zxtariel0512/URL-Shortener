@@ -56,7 +56,20 @@ app.get('/shorten', function(req, res){
     res.render('shorten', {valid: displayMessage, shortenURL: urlData[urlData.length - 1].shortURL});
 })
 app.get('/expand', function(req, res){
-    
+    displayMessage = false;
+    const inputURL = req.query.shortURL;
+    const inputObj = new URLShortener.URLShortener();
+    inputObj.shortURL = inputURL;
+    const originalURL = inputObj.expand(urlData);
+    console.log(originalURL);
+    if(originalURL !== undefined){
+        displayMessage = true;
+    }
+    res.render('expand', {valid: displayMessage, expandURL: originalURL});
+    const writeData = JSON.stringify(urlData, null, 2);
+    fs.writeFileSync(dataPath, writeData, (err) =>{
+        if(err){throw err;}
+    })
 })
 
 app.post('/shorten', function(req, res){
