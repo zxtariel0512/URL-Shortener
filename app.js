@@ -2,15 +2,21 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const URLShortener = require('./urlShortener.js');
+const promise = fs.promises;
 
-
+const app = express();
 
 const dataPath = path.join(__dirname, 'data', 'urldata.json');
-const urls = JSON.parse(fs.readFileSync(dataPath));
-const urlData = [];
-urls.forEach((url) => {
-    urlData.push(new URLShortener.URLShortener(url.originalURL, url.shortURL, url.clickCount));
+
+const readFileDum = promise.readFile;
+let urlData = [];
+readFileDum(dataPath).then(data => {
+    const dataStr = data.toString();
+    urlData = JSON.parse(dataStr);
+    console.log(urlData);
+    app.listen(3000, () => console.log("Server started; type CTRL+C to shut down")); 
 });
+
 let displayMessage = false;
 // // const readFile = util.promisify(fs.readFile);
 // // async function callReadFile(path){
@@ -36,8 +42,6 @@ let displayMessage = false;
 // });
 // console.log(urlData);
 
-
-const app = express();
 const publicPath = path.resolve(__dirname, 'public');
 app.set('view engine', 'hbs');
 app.use(express.static(publicPath));
@@ -87,17 +91,4 @@ app.post('/shorten', function(req, res){
     });
     console.log('JSON file updated');
     res.redirect('/shorten');
-});
-
-
-
-
-
-
-
-
-
-
-app.listen(3000, () => {
-    console.log('Server started; type CTRL+C to shut down');
 });
